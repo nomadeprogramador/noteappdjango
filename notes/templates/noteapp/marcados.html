@@ -1,0 +1,30 @@
+{% extends 'base/model.html' %}
+
+{% block content%}
+<div class="container">
+    <h1 class="text-center mt-4"> NOTE APP - NOTAS MARCADAS  </h1>
+<div class="row bootstrap snippets bootdeys">
+    {% for note in notas_marcadas %}
+    <div class="col-md-4 col-sm-6 content-card">
+        <div class="card-big-shadow">
+            <div class="card card-just-text" data-background="color" data-color="yellow" data-radius="none">
+                <i class="bi bi-bookmark-check-fill">Marcado </i>
+
+                <div class="content">
+                    <h6 class="category">NOTAS
+                    </h6>
+                    <h4 class="title"style='color:black' >{{note.titulo}}</h4>
+                    <p class="description"style='color:black'> {{note.texto}} </p>
+                </div>
+                <div class="card-footer" style="color: black;">
+                    {{note.data}}
+                </div>
+            </div> <!-- end card -->
+       </div>
+
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

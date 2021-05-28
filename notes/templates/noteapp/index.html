@@ -1,0 +1,33 @@
+{% extends 'base/model.html' %}
+
+{% block content%}
+<div class="container">
+    <h1 class="text-center mt-4"> NOTE APP  </h1>
+<div class="row bootstrap snippets bootdeys">
+    {% for note in notes %}
+    <div class="col-md-4 col-sm-6 content-card">
+        <div class="card-big-shadow">
+            <div class="card card-just-text" data-background="color" data-color="yellow" data-radius="none">
+                {% if note.marcado == True %}
+                    <i class="bi bi-bookmark-check-fill">Marcado </i>
+                {% endif %}
+
+                <div class="content">
+                    <h6 class="category">NOTAS </h6>
+                    <h4 class="title"style='color:black' >{{note.titulo}}</h4>
+                    <p class="description"style='color:black'> {{note.texto}} </p>
+                </div>
+                <div class="card-footer" style="color: black;">
+                    {{note.data}} <a href="{% url 'excluir' note.id %}"> <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                      </svg></a>
+                </div>
+            </div> <!-- end card -->
+       </div>
+
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
